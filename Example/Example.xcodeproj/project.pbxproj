@@ -17,6 +17,7 @@
 		9FA387DC217E1C9F007D1D28 /* CustomLocalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA387DB217E1C9F007D1D28 /* CustomLocalize.swift */; };
 		9FB68F231E2B5D1400D386CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FB68F1F1E2B5D1400D386CE /* LaunchScreen.storyboard */; };
 		9FB68F241E2B5D1400D386CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FB68F211E2B5D1400D386CE /* Main.storyboard */; };
+		CA25312622BCF7F9005512E5 /* Localize.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF5FC541F7C5618001C14D6 /* Localize.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA25312622BCF7F9005512E5 /* Localize.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +96,7 @@
 				9F8D414F1E29359A00D7CE9A /* Example */,
 				9F8D414E1E29359A00D7CE9A /* Products */,
 				9FF5FC4E1F7C5618001C14D6 /* Localize.xcodeproj */,
+				CA25312322BCF7F9005512E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +129,13 @@
 				9FF5FC561F7C5618001C14D6 /* LocalizeTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CA25312322BCF7F9005512E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
