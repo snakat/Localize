@@ -60,6 +60,7 @@
                                 <state key="normal" title="Update language"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="app.update.language"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeBackground" value="image.flag"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="updateLanguage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5ws-kY-s95"/>

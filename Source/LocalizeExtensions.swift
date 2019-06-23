@@ -7,9 +7,11 @@
 
 import UIKit
 
-private var localizeKey1: UInt8 = 0
-private var localizeKey2: UInt8 = 1
-private var autoLocalizeKey: UInt8 = 2
+private var autoLocalizeKey: UInt8 = 0
+private var localizeKey1: UInt8 = 1
+private var localizeKey2: UInt8 = 2
+private var localizeKey3: UInt8 = 3
+private var localizeKey4: UInt8 = 4
 
 /// Extension for NSCoding, easy way to storage IBInspectable properties.
 extension NSCoding {
@@ -95,6 +97,18 @@ extension UIButton {
         set { setLocalized(value: newValue, key: &localizeKey1) }
     }
 
+    /// Localizable tag storeged property
+    @IBInspectable public var localizeBackground: String? {
+        get { return localizedValueFor(key: &localizeKey2) }
+        set { setLocalized(value: newValue, key: &localizeKey2) }
+    }
+
+    /// Localizable tag storeged property
+    @IBInspectable public var localizeBackgroundSelected: String? {
+        get { return localizedValueFor(key: &localizeKey3) }
+        set { setLocalized(value: newValue, key: &localizeKey3) }
+    }
+
     /// Override awakeFromNib when is going visible, try search a key in JSON File
     /// If key match replace text, if can't match return the key (original text)
     /// Set title for UIButton in each state
@@ -120,6 +134,14 @@ extension UIButton {
             title = LocalizeUI.localize(key: &localizeKey, value: &title)
             setTitle(title, for: state)
         }
+
+        var normalImage = self.backgroundImage(for: .normal)
+        normalImage = LocalizeUI.localize(key: &localizeBackground, value: &normalImage)
+        self.setBackgroundImage(normalImage, for: .normal)
+
+        var selectedImage = self.backgroundImage(for: .selected)
+        selectedImage = LocalizeUI.localize(key: &localizeBackgroundSelected, value: &selectedImage)
+        self.setBackgroundImage(selectedImage, for: .selected)
     }
 }
 
