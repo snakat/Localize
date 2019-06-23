@@ -20,9 +20,15 @@ class LocalizeUI: NSObject {
         value: inout String?,
         updateKey: Bool = true) -> String {
 
-        if let localized = key?.localize() {
-            value = localized
-            return localized
+        if let key = key {
+            if key.count > 0 {
+                let localized = key.localize()
+                value = localized
+                return localized
+            }
+            else {
+                print("#warning: key is empty!!! value=", value ?? "")
+            }
         }
         if let localized = value?.localize() {
             if updateKey { key = value }
