@@ -122,6 +122,17 @@ open class LocalizeCommonProtocol: LocalizeProtocol {
     /// If the key is not found return the same key
     /// That prevent replace untagged values
     ///
+    /// - returns: localized font
+    open func localizeFont(key: String, size: CGFloat) -> UIFont? {
+        let localizedName: String = self.localize(key: key)
+
+        return UIFont(name: localizedName, size: size)
+    }
+
+    /// Localize a string using your JSON File
+    /// If the key is not found return the same key
+    /// That prevent replace untagged values
+    ///
     /// - returns: localized key or same text
     open func localize(key: String, tableName: String? = nil) -> String {
         fatalError("implement it")

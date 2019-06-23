@@ -34,5 +34,9 @@
     "image": {
         "flag": "flag_fr",
         "flag_selected": "flag_selected_fr"
+    },
+    "font": {
+        "name": "RockWell",
+        "size": "17"
     }
 }

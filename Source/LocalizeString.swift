@@ -92,4 +92,13 @@ public extension String {
     func localizeImage() -> UIImage? {
         return Localize.localizeImage(key: self)
     }
+
+    /// Localize a string using your JSON File
+    /// If the key is not found return the same key
+    /// That prevent replace untagged values
+    ///
+    /// - returns: localized font
+    func localizeFont(size: CGFloat) -> UIFont? {
+        return Localize.localizeFont(key: self, size: size)
+    }
 }

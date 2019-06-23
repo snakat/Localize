@@ -12,6 +12,7 @@ private var localizeKey1: UInt8 = 1
 private var localizeKey2: UInt8 = 2
 private var localizeKey3: UInt8 = 3
 private var localizeKey4: UInt8 = 4
+private var localizeKey5: UInt8 = 5
 
 /// Extension for NSCoding, easy way to storage IBInspectable properties.
 extension NSCoding {
@@ -25,6 +26,11 @@ extension NSCoding {
         guard let value = value else { return }
         let policy = objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN
         objc_setAssociatedObject(self, key, value, policy)
+    }
+
+    /// Get associated property by IBInspectable var.
+    fileprivate func localizedValueFor(key: UnsafeMutablePointer<UInt8>) -> CGFloat {
+        return objc_getAssociatedObject(self, key) as? CGFloat ?? 12
     }
 
     /// Get associated autoLocalize property by IBInspectable var.
@@ -91,19 +97,19 @@ extension UIButton {
         set { setAutoLocalizeValue(value: newValue) }
     }
 
-    /// Localizable tag storeged property
+    /// Localizable title storeged property
     @IBInspectable public var localizeKey: String? {
         get { return localizedValueFor(key: &localizeKey1) }
         set { setLocalized(value: newValue, key: &localizeKey1) }
     }
 
-    /// Localizable tag storeged property
+    /// Localizable background storeged property
     @IBInspectable public var localizeBackground: String? {
         get { return localizedValueFor(key: &localizeKey2) }
         set { setLocalized(value: newValue, key: &localizeKey2) }
     }
 
-    /// Localizable tag storeged property
+    /// Localizable background storeged property
     @IBInspectable public var localizeBackgroundSelected: String? {
         get { return localizedValueFor(key: &localizeKey3) }
         set { setLocalized(value: newValue, key: &localizeKey3) }
@@ -153,10 +159,22 @@ extension UILabel {
         set { setAutoLocalizeValue(value: newValue) }
     }
 
-    /// Localizable tag storeged property
+    /// Localizable text storeged property
     @IBInspectable public var localizeKey: String? {
         get { return localizedValueFor(key: &localizeKey1) }
         set { setLocalized(value: newValue, key: &localizeKey1) }
+    }
+
+    /// Localizable font storeged property
+    @IBInspectable public var localizeFontName: String? {
+        get { return localizedValueFor(key: &localizeKey2) }
+        set { setLocalized(value: newValue, key: &localizeKey2) }
+    }
+
+    /// Localizable font storeged property
+    @IBInspectable public var localizeFontSize: String? {
+        get { return localizedValueFor(key: &localizeKey3) }
+        set { setLocalized(value: newValue, key: &localizeKey3) }
     }
 
     /// Override awakeFromNib when is going visible, try search a key in JSON File
@@ -173,6 +191,7 @@ extension UILabel {
     /// Here we change text with key replacement
     @objc public func localize() {
         LocalizeUI.localize(key: &localizeKey, value: &text)
+        LocalizeUI.localize(key: &localizeFontName, size: &localizeFontSize, value: &font)
     }
 }
 
@@ -339,6 +358,18 @@ extension UITextField {
         set { setLocalized(value: newValue, key: &localizeKey2) }
     }
 
+    /// Localizable font storeged property
+    @IBInspectable public var localizeFontName: String? {
+        get { return localizedValueFor(key: &localizeKey3) }
+        set { setLocalized(value: newValue, key: &localizeKey3) }
+    }
+
+    /// Localizable font storeged property
+    @IBInspectable public var localizeFontSize: String? {
+        get { return localizedValueFor(key: &localizeKey4) }
+        set { setLocalized(value: newValue, key: &localizeKey4) }
+    }
+
     /// Override awakeFromNib when is going visible, try search a key in JSON File
     /// If key match replace text, if can't match return the key (original text)
     /// Set title and placeholder for UITextField
@@ -354,6 +385,7 @@ extension UITextField {
     @objc public func localize() {
         LocalizeUI.localize(key: &localizeText, value: &text)
         LocalizeUI.localize(key: &localizePlaceholder, value: &placeholder)
+        LocalizeUI.localize(key: &localizeFontName, size: &localizeFontSize, value: &font)
     }
 }
 
@@ -369,6 +401,18 @@ extension UITextView {
     @IBInspectable public var localizeKey: String? {
         get { return localizedValueFor(key: &localizeKey1) }
         set { setLocalized(value: newValue, key: &localizeKey1) }
+    }
+
+    /// Localizable font storeged property
+    @IBInspectable public var localizeFontName: String? {
+        get { return localizedValueFor(key: &localizeKey2) }
+        set { setLocalized(value: newValue, key: &localizeKey2) }
+    }
+
+    /// Localizable font storeged property
+    @IBInspectable public var localizeFontSize: String? {
+        get { return localizedValueFor(key: &localizeKey3) }
+        set { setLocalized(value: newValue, key: &localizeKey3) }
     }
 
     /// Override awakeFromNib when is going visible, try search a key in JSON File
@@ -387,6 +431,8 @@ extension UITextView {
         var localize = text
         localize = LocalizeUI.localize(key: &localizeKey, value: &localize)
         text = localize
+
+        LocalizeUI.localize(key: &localizeFontName, size: &localizeFontSize, value: &font)
     }
 }
 

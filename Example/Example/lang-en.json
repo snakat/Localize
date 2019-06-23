@@ -34,5 +34,9 @@
     "image": {
         "flag": "flag_en",
         "flag_selected": "flag_selected_en"
+    },
+    "font": {
+        "name": "Menlo",
+        "size": "17"
     }
 }

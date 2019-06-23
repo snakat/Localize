@@ -28,6 +28,8 @@
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="app.label"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeFontName" value="font.name"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeFontSize" value="font.size"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HTc-mN-LYL">
@@ -37,6 +39,8 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizePlaceholder" value="app.textfield"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeFontName" value="font.name"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeFontSize" value="font.size"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p63-5M-lb2">
@@ -168,6 +172,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeFontName" value="font.name"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeFontSize" value="font.size"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="app.label" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0HU-Y9-uB5">
                                 <rect key="frame" x="32" y="148.5" width="311" height="128"/>
@@ -177,6 +185,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeFontName" value="font.name"/>
+                                </userDefinedRuntimeAttributes>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

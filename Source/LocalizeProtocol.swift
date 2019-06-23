@@ -37,6 +37,13 @@ public protocol LocalizeProtocol {
     /// If the key is not found return the same key
     /// That prevent replace untagged values
     ///
+    /// - returns: localized font
+    func localizeFont(key: String, size: CGFloat) -> UIFont?
+
+    /// Localize a string using your JSON File
+    /// If the key is not found return the same key
+    /// That prevent replace untagged values
+    ///
     /// - returns: localized key or same text
     func localize(key: String, tableName: String?) -> String
 
