@@ -398,3 +398,41 @@ extension UIViewController {
         LocalizeUI.localize(key: &localizeTitle, value: &title)
     }
 }
+
+/// Extension for UI element is the easier way to localize your keys.
+extension UIImageView {
+    /// Auto localize stored property
+    @IBInspectable public var autoLocalize: Bool {
+        get { return autoLocalizeValue() }
+        set { setAutoLocalizeValue(value: newValue) }
+    }
+
+    /// Localizable tag storeged property
+    @IBInspectable public var localizeImage: String? {
+        get { return localizedValueFor(key: &localizeKey1) }
+        set { setLocalized(value: newValue, key: &localizeKey1) }
+    }
+
+    /// Localizable tag storeged property
+    @IBInspectable public var localizeHighlighted: String? {
+        get { return localizedValueFor(key: &localizeKey2) }
+        set { setLocalized(value: newValue, key: &localizeKey2) }
+    }
+
+    /// Override awakeFromNib when is going visible, try search a key in JSON File
+    /// If key match replace text, if can't match return the key (original text)
+    /// Set image and highlighted image for UIImageView
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        if autoLocalize {
+            localize()
+            NotificationCenter.localize(observer: self, selector: #selector(localize))
+        }
+    }
+
+    /// Here we change text with key replacement
+    @objc public func localize() {
+        LocalizeUI.localize(key: &localizeImage, value: &image)
+        LocalizeUI.localize(key: &localizeHighlighted, value: &highlightedImage)
+    }
+}

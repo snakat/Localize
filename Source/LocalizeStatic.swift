@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension Localize {
 
@@ -21,6 +22,15 @@ extension Localize {
     /// - returns: current used language
     public static var currentLanguage: String {
         return Localize.shared.currentLanguage
+    }
+
+    /// Localize a string using your JSON File
+    /// If the key is not found return the same key
+    /// That prevent replace untagged values
+    ///
+    /// - returns: localized image
+    public static func localizeImage(key: String) -> UIImage? {
+        return Localize.shared.localizeImage(key: key)
     }
 
     /// Localize a string using your JSON File

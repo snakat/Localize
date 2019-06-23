@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3md-ly-arL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3md-ly-arL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -75,9 +74,48 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="app.language"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W9q-Xl-5A1" userLabel="Flag View">
+                                <rect key="frame" x="16" y="199.5" width="343" height="155.5"/>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uqy-Iw-g7L" userLabel="Localize Flag">
+                                        <rect key="frame" x="0.0" y="0.0" width="155.5" height="155.5"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Uqy-Iw-g7L" secondAttribute="height" multiplier="1:1" id="MV1-qu-duZ"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="flag"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeImage" value="image.flag"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeHighlighted" value="image.flag_selected"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="czc-jI-OKk" appends="YES" id="4kT-5c-hHK"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag_en" translatesAutoresizingMaskIntoConstraints="NO" id="yDa-qT-JWD" userLabel="Default Flag">
+                                        <rect key="frame" x="187.5" y="0.0" width="155.5" height="155.5"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="flag"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Uqy-Iw-g7L" firstAttribute="leading" secondItem="W9q-Xl-5A1" secondAttribute="leading" id="Nbx-YZ-YNN"/>
+                                    <constraint firstItem="yDa-qT-JWD" firstAttribute="top" secondItem="Uqy-Iw-g7L" secondAttribute="top" id="Nhh-le-ENS"/>
+                                    <constraint firstItem="yDa-qT-JWD" firstAttribute="leading" secondItem="Uqy-Iw-g7L" secondAttribute="trailing" constant="32" id="Sx4-r2-pYC"/>
+                                    <constraint firstItem="yDa-qT-JWD" firstAttribute="bottom" secondItem="Uqy-Iw-g7L" secondAttribute="bottom" id="VV1-L9-XiM"/>
+                                    <constraint firstItem="yDa-qT-JWD" firstAttribute="width" secondItem="Uqy-Iw-g7L" secondAttribute="width" id="Y88-I8-sYH"/>
+                                    <constraint firstAttribute="trailing" secondItem="yDa-qT-JWD" secondAttribute="trailing" id="gD7-gi-Ig4"/>
+                                    <constraint firstItem="Uqy-Iw-g7L" firstAttribute="top" secondItem="W9q-Xl-5A1" secondAttribute="top" id="gnt-tm-c2z"/>
+                                    <constraint firstItem="yDa-qT-JWD" firstAttribute="height" secondItem="Uqy-Iw-g7L" secondAttribute="height" id="jgS-h9-31q"/>
+                                    <constraint firstAttribute="bottom" secondItem="Uqy-Iw-g7L" secondAttribute="bottom" id="zOs-k3-yhH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="W9q-Xl-5A1" firstAttribute="leading" secondItem="HTc-mN-LYL" secondAttribute="leading" id="3Pi-Te-mQf"/>
                             <constraint firstItem="HTc-mN-LYL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="8rl-SI-bS7"/>
                             <constraint firstItem="p63-5M-lb2" firstAttribute="top" secondItem="t6w-Gh-I1B" secondAttribute="bottom" constant="16" id="9Re-2H-AWu"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="p63-5M-lb2" secondAttribute="bottom" constant="16" id="9S3-Za-rbL"/>
@@ -87,14 +125,14 @@
                             <constraint firstItem="eRz-bg-Iry" firstAttribute="top" secondItem="HTc-mN-LYL" secondAttribute="bottom" constant="16" id="hUa-0v-0D1"/>
                             <constraint firstAttribute="trailing" secondItem="t6w-Gh-I1B" secondAttribute="trailing" constant="16" id="kKu-IE-Kka"/>
                             <constraint firstItem="HTc-mN-LYL" firstAttribute="top" secondItem="BBe-T0-9G7" secondAttribute="bottom" constant="16" id="moj-23-sv3"/>
+                            <constraint firstItem="W9q-Xl-5A1" firstAttribute="top" secondItem="eRz-bg-Iry" secondAttribute="bottom" constant="16" id="n6X-lg-9WE"/>
                             <constraint firstAttribute="trailing" secondItem="p63-5M-lb2" secondAttribute="trailing" constant="16" id="nG1-qm-YdX"/>
                             <constraint firstAttribute="trailing" secondItem="eRz-bg-Iry" secondAttribute="trailing" constant="16" id="oDf-EE-l6i"/>
                             <constraint firstItem="p63-5M-lb2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="qao-xb-Pm3"/>
-                            <constraint firstAttribute="trailing" secondItem="t6w-Gh-I1B" secondAttribute="trailing" constant="16" id="r8G-Cl-FAh"/>
-                            <constraint firstItem="t6w-Gh-I1B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="rgY-2g-w2o"/>
                             <constraint firstItem="BBe-T0-9G7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="sG0-Z9-Ojm"/>
                             <constraint firstItem="BBe-T0-9G7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xjA-Lc-h4j"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BBe-T0-9G7" secondAttribute="trailing" id="zHN-Qm-zVA"/>
+                            <constraint firstItem="W9q-Xl-5A1" firstAttribute="trailing" secondItem="HTc-mN-LYL" secondAttribute="trailing" id="zqF-WP-m58"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Localize" id="fTq-hX-6gC">
@@ -104,6 +142,11 @@
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="czc-jI-OKk">
+                    <connections>
+                        <action selector="tapImage:" destination="BYZ-38-t0r" id="8x1-KB-O0g"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="842" y="-546"/>
         </scene>
@@ -188,4 +231,7 @@
             <point key="canvasLocation" x="-87.200000000000003" y="-545.57721139430294"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="flag_en" width="128" height="128"/>
+    </resources>
 </document>

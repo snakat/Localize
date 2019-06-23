@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class LocalizeUI: NSObject {
     /// Localize UI component using key and value or result
@@ -30,6 +31,27 @@ class LocalizeUI: NSObject {
         }
 
         return value ?? ""
+    }
+
+    /// Localize UI component using key and value or result
+    /// It decide wich is the way to localize, user IB Properties
+    /// or values in the ui component.
+    ///
+    /// - returns: localized string and also edit it inside.
+    @discardableResult
+    static func localize(
+        key: inout String?,
+        value: inout UIImage?,
+        updateKey: Bool = true) -> UIImage? {
+
+        if let key = key, key.count > 0 {
+            if let localized = key.localizeImage() {
+                value = localized
+                return localized
+            }
+        }
+
+        return value
     }
 
     /// Get key for segment controls based on string like to

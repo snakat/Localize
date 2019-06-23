@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Name for language change notification
 public let localizeChangeNotification = "LocalizeChangeNotification"
@@ -50,6 +51,15 @@ public class Localize: NSObject {
     }
 
     // MARK: Public methods
+
+    /// Localize a string using your JSON File
+    /// If the key is not found return the same key
+    /// That prevent replace untagged values
+    ///
+    /// - returns: localized image
+    public func localizeImage(key: String) -> UIImage? {
+        return provider.localizeImage(key: key)
+    }
 
     /// Localize a string using your JSON File
     /// If the key is not found return the same key

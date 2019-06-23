@@ -36,8 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Or you can use static methods for all
 
         Localize.update(fileName: "lang")
-        Localize.update(defaultLanguage: "fr")
-        Localize.update(language: "en-DE")
+        Localize.update(defaultLanguage: "en")
+        Localize.update(language: "fr")
 
         return true
     }

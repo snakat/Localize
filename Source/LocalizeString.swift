@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// String extension used to localize your keys matched
 /// in your JSON File.
@@ -81,5 +82,14 @@ public extension String {
     /// - returns: Localized and Pluralized key according with the value.
     func pluralize(value: Int, tableName: String? = nil) -> String {
         return Pluralize.pluralize(key: self, value: value, tableName: tableName)
+    }
+
+    /// Localize a string using your JSON File
+    /// If the key is not found return the same key
+    /// that prevent replace untagged values
+    ///
+    /// - returns: localized image
+    func localizeImage() -> UIImage? {
+        return Localize.localizeImage(key: self)
     }
 }

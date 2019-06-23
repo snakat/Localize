@@ -30,5 +30,9 @@
         }
     },
     "one": "First",
-    "two": "Second"
+    "two": "Second",
+    "image": {
+        "flag": "flag_en",
+        "flag_selected": "flag_selected_en"
+    }
 }

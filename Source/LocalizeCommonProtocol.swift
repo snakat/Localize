@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Provide a default functionality.
 open class LocalizeCommonProtocol: LocalizeProtocol {
@@ -105,6 +106,17 @@ open class LocalizeCommonProtocol: LocalizeProtocol {
     }
 
     // MARK: Localize methods.
+
+    /// Localize a string using your JSON File
+    /// If the key is not found return the same key
+    /// That prevent replace untagged values
+    ///
+    /// - returns: localized image
+    open func localizeImage(key: String) -> UIImage? {
+        let localizedName: String = self.localize(key: key)
+
+        return UIImage(named: localizedName)
+    }
 
     /// Localize a string using your JSON File
     /// If the key is not found return the same key

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol LocalizeProtocol {
 
@@ -24,6 +25,13 @@ public protocol LocalizeProtocol {
     var availableLanguages: [String] {get}
 
     // MARK: Localize Methos
+
+    /// Localize a string using your JSON File
+    /// If the key is not found return the same key
+    /// That prevent replace untagged values
+    ///
+    /// - returns: localized image
+    func localizeImage(key: String) -> UIImage?
 
     /// Localize a string using your JSON File
     /// If the key is not found return the same key

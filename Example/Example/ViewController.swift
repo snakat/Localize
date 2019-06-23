@@ -71,4 +71,10 @@ class ViewController: UIViewController {
         Localize.update(provider: .custom(provider: provider))
         print("test.custom.provider".localized)
     }
+
+    @IBAction func tapImage(_ recognizer: UITapGestureRecognizer) {
+        if let imageView = recognizer.view as? UIImageView {
+            imageView.isHighlighted = !imageView.isHighlighted
+        }
+    }
 }
