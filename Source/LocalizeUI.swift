@@ -73,8 +73,18 @@ class LocalizeUI: NSObject {
         updateKey: Bool = true) -> UIFont? {
 
         if let key = key, key.count > 0 {
-            let size = CGFloat(truncating: NumberFormatter().number(from: size?.localize() ?? "") ?? 12)
-            if let localized = key.localizeFont(size: size) {
+            let cgFloat: CGFloat
+            if let str = size?.localize(), let doulbe = Double(str) {
+                cgFloat = CGFloat(doulbe)
+            }
+            else if let pointSize = value?.pointSize {
+                cgFloat = pointSize
+            }
+            else {
+                cgFloat = 12
+            }
+
+            if let localized = key.localizeFont(size: cgFloat) {
                 value = localized
                 return localized
             }
