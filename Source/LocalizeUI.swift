@@ -72,19 +72,35 @@ class LocalizeUI: NSObject {
         value: inout UIFont?,
         updateKey: Bool = true) -> UIFont? {
 
+        let fontKey: String
         if let key = key, key.count > 0 {
-            let cgFloat: CGFloat
-            if let str = size?.localize(), let doulbe = Double(str) {
-                cgFloat = CGFloat(doulbe)
-            }
-            else if let pointSize = value?.pointSize {
-                cgFloat = pointSize
-            }
-            else {
-                cgFloat = 12
-            }
+            fontKey = key
+        }
+        else if let fontName = value?.fontName {
+            let lowercased = fontName.lowercased()
+            fontKey = lowercased.contains("regular") ? "font.regular" :
+                lowercased.contains("medium") ? "font.medium" :
+                lowercased.contains("bold") ? "font.bold" :
+                lowercased.contains("light") ? "font.light" :
+                lowercased.contains("italic") ? "font.italic" : fontName
+        }
+        else {
+            fontKey = ""
+        }
 
-            if let localized = key.localizeFont(size: cgFloat) {
+        let cgFloat: CGFloat
+        if let str = size?.localize(), let doulbe = Double(str) {
+            cgFloat = CGFloat(doulbe)
+        }
+        else if let pointSize = value?.pointSize {
+            cgFloat = pointSize
+        }
+        else {
+            cgFloat = 12
+        }
+
+        if !fontKey.isEmpty {
+            if let localized = fontKey.localizeFont(size: cgFloat) {
                 value = localized
                 return localized
             }

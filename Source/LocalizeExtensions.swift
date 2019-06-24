@@ -28,11 +28,6 @@ extension NSCoding {
         objc_setAssociatedObject(self, key, value, policy)
     }
 
-    /// Get associated property by IBInspectable var.
-    fileprivate func localizedValueFor(key: UnsafeMutablePointer<UInt8>) -> CGFloat {
-        return objc_getAssociatedObject(self, key) as? CGFloat ?? 12
-    }
-
     /// Get associated autoLocalize property by IBInspectable var.
     fileprivate func autoLocalizeValue() -> Bool {
         return objc_getAssociatedObject(self, &autoLocalizeKey) as? Bool ?? true
