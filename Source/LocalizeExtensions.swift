@@ -103,16 +103,28 @@ extension UIButton {
         set { setLocalized(value: newValue, key: &localizeKey1) }
     }
 
-    /// Localizable background storeged property
-    @IBInspectable public var localizeBackground: String? {
+    /// Localizable font storeged property
+    @IBInspectable public var localizeFontName: String? {
         get { return localizedValueFor(key: &localizeKey2) }
         set { setLocalized(value: newValue, key: &localizeKey2) }
     }
 
-    /// Localizable background storeged property
-    @IBInspectable public var localizeBackgroundSelected: String? {
+    /// Localizable font storeged property
+    @IBInspectable public var localizeFontSize: String? {
         get { return localizedValueFor(key: &localizeKey3) }
         set { setLocalized(value: newValue, key: &localizeKey3) }
+    }
+
+    /// Localizable background storeged property
+    @IBInspectable public var localizeBackground: String? {
+        get { return localizedValueFor(key: &localizeKey4) }
+        set { setLocalized(value: newValue, key: &localizeKey4) }
+    }
+
+    /// Localizable background storeged property
+    @IBInspectable public var localizeBackgroundSelected: String? {
+        get { return localizedValueFor(key: &localizeKey5) }
+        set { setLocalized(value: newValue, key: &localizeKey5) }
     }
 
     /// Override awakeFromNib when is going visible, try search a key in JSON File
@@ -140,6 +152,9 @@ extension UIButton {
             title = LocalizeUI.localize(key: &localizeKey, value: &title)
             setTitle(title, for: state)
         }
+
+        var titleFont = self.titleLabel?.font
+        self.titleLabel?.font = LocalizeUI.localize(key: &localizeFontName, size: &localizeFontSize, value: &titleFont)
 
         var normalImage = self.backgroundImage(for: .normal)
         normalImage = LocalizeUI.localize(key: &localizeBackground, value: &normalImage)

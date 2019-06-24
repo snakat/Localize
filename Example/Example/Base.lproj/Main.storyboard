@@ -51,6 +51,7 @@
                                 <state key="normal" title="Continue"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Continue"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeFontName" value="font.name"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="QHj-YI-Ix7" kind="show" id="HBm-eo-j6C"/>
