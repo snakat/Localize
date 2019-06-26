@@ -31,7 +31,7 @@ class LocalizeUI: NSObject {
             }
         }
         if let localized = value?.localize() {
-            if updateKey { key = value }
+            if updateKey && localized != value { key = value }
             value = localized
             return localized
         }
