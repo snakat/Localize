@@ -17,7 +17,7 @@ class ViewController: UIViewController {
 
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(onLocalize),
+            selector: #selector(onLocalizeFromNotification),
             name: NSNotification.Name(localizeChangeNotification),
             object: nil
         )
@@ -29,7 +29,16 @@ class ViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
 
-    @objc func onLocalize() {
+    @objc func onLocalizeFromNotification() {
+        print("hello.world".localize())
+        print("name".localize(value: "Andres"))
+        print("values".localize(values: "Andres", "Software Developer"))
+        print("username".localize(dictionary: ["username": "andresilvagomez"]))
+        print("level.one.two.three".localize())
+        print("the.same.lavel".localize())
+    }
+
+    override func onLocalize() {
         print("hello.world".localize())
         print("name".localize(value: "Andres"))
         print("values".localize(values: "Andres", "Software Developer"))

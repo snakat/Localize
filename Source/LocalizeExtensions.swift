@@ -81,6 +81,11 @@ extension UIBarButtonItem {
     /// Here we change text with key replacement
     @objc public func localize() {
         title = LocalizeUI.localize(key: &localizeKey, value: &title)
+
+        self.onLocalize()
+    }
+
+    @objc open func onLocalize() {
     }
 }
 
@@ -158,6 +163,11 @@ extension UIButton {
         var selectedImage = self.backgroundImage(for: .selected)
         selectedImage = LocalizeUI.localize(key: &localizeBackgroundSelected, value: &selectedImage)
         self.setBackgroundImage(selectedImage, for: .selected)
+
+        self.onLocalize()
+    }
+
+    @objc open func onLocalize() {
     }
 }
 
@@ -198,10 +208,29 @@ extension UILabel {
         }
     }
 
+    public convenience init(frame: CGRect, autoLocalize: Bool, localizeKey: String?, localizeFontName: String?, localizeFontSize: String?) {
+        self.init(frame: frame)
+
+        self.autoLocalize = autoLocalize
+        self.localizeKey = localizeKey
+        self.localizeFontName = localizeFontName
+        self.localizeFontSize = localizeFontSize
+
+        if autoLocalize {
+            localize()
+            NotificationCenter.localize(observer: self, selector: #selector(localize))
+        }
+    }
+
     /// Here we change text with key replacement
     @objc public func localize() {
         LocalizeUI.localize(key: &localizeKey, value: &text)
         LocalizeUI.localize(key: &localizeFontName, size: &localizeFontSize, value: &font)
+
+        self.onLocalize()
+    }
+
+    @objc open func onLocalize() {
     }
 }
 
@@ -240,6 +269,11 @@ extension UINavigationItem {
     @objc public func localize() {
         LocalizeUI.localize(key: &localizeTitle, value: &title)
         LocalizeUI.localize(key: &localizePrompt, value: &prompt)
+
+        self.onLocalize()
+    }
+
+    @objc open func onLocalize() {
     }
 }
 
@@ -278,6 +312,11 @@ extension UISearchBar {
     @objc public func localize() {
         LocalizeUI.localize(key: &localizePlaceholder, value: &placeholder)
         LocalizeUI.localize(key: &localizePrompt, value: &prompt)
+
+        self.onLocalize()
+    }
+
+    @objc open func onLocalize() {
     }
 }
 
@@ -314,6 +353,11 @@ extension UISegmentedControl {
             title = LocalizeUI.localize(key: &key, value: &title, updateKey: false)
             setTitle(title, forSegmentAt: index)
         }
+
+        self.onLocalize()
+    }
+
+    @objc open func onLocalize() {
     }
 }
 
@@ -345,6 +389,11 @@ extension UITabBarItem {
     /// Here we change text with key replacement
     @objc public func localize() {
         LocalizeUI.localize(key: &localizeKey, value: &title)
+
+        self.onLocalize()
+    }
+
+    @objc open func onLocalize() {
     }
 }
 
@@ -396,6 +445,11 @@ extension UITextField {
         LocalizeUI.localize(key: &localizeText, value: &text)
         LocalizeUI.localize(key: &localizePlaceholder, value: &placeholder)
         LocalizeUI.localize(key: &localizeFontName, size: &localizeFontSize, value: &font)
+
+        self.onLocalize()
+    }
+
+    @objc open func onLocalize() {
     }
 }
 
@@ -443,6 +497,11 @@ extension UITextView {
         text = localize
 
         LocalizeUI.localize(key: &localizeFontName, size: &localizeFontSize, value: &font)
+
+        self.onLocalize()
+    }
+
+    @objc open func onLocalize() {
     }
 }
 
@@ -474,6 +533,11 @@ extension UIViewController {
     /// Here we change text with key replacement
     @objc public func localize() {
         LocalizeUI.localize(key: &localizeTitle, value: &title)
+
+        self.onLocalize()
+    }
+
+    @objc open func onLocalize() {
     }
 }
 
@@ -508,9 +572,27 @@ extension UIImageView {
         }
     }
 
+    public convenience init(frame: CGRect, autoLocalize: Bool, localizeImage: String?, localizeHighlighted: String?) {
+        self.init(frame: frame)
+
+        self.autoLocalize = autoLocalize
+        self.localizeImage = localizeImage
+        self.localizeHighlighted = localizeHighlighted
+
+        if autoLocalize {
+            localize()
+            NotificationCenter.localize(observer: self, selector: #selector(localize))
+        }
+    }
+
     /// Here we change text with key replacement
     @objc public func localize() {
         LocalizeUI.localize(key: &localizeImage, value: &image)
         LocalizeUI.localize(key: &localizeHighlighted, value: &highlightedImage)
+
+        self.onLocalize()
+    }
+
+    @objc open func onLocalize() {
     }
 }
